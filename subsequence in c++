@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+void subseq(int index,vector<int>&ds,int arr[],int n)
+{
+    if(n==index)
+    {
+        if(ds.size()==0)
+        {
+            cout<<"empty";
+        }
+        for(auto it:ds)
+        {
+            cout<<it<<" ";
+        }
+        cout<<endl;
+        return;
+    }
+    subseq(index+1,ds,arr,n);//not take the index
+    ds.push_back(arr[index]);//insert the index value
+    subseq(index+1,ds,arr,n);//take the index value
+    ds.pop_back();//pop the value
+    
+}
+int main()
+{
+    vector<int>ds;
+    int arr[]={3,2,1};
+    int n=3;
+    subseq(0,ds,arr,n);
+    return 0;
+}
