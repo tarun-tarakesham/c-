@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+void sub(int i,vector<int>&ds,int l,int sum,int arr[])
+{
+    if(i==l)
+    {
+        int count=0;
+        cout<<sum<<endl;
+        
+        return;
+    }
+    ds.push_back(arr[i]);
+    sum=sum+arr[i];
+    sub(i+1,ds,l,sum,arr);
+    sum=sum-arr[i];
+    ds.pop_back();
+    sub(i+1,ds,l,sum,arr);
+}
+int main()
+{
+    int i=0;
+    int l=3;
+    int sum=0;
+    int arr[5]={3,2,1};
+    vector<int>ds;
+    sub(i,ds,l,sum,arr);
+}
