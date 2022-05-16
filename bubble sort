@@ -30,3 +30,5 @@ output:
 
 
 explanation:
+time complexity=O(n^2)
+space complexity=O(1)//because we are not using any any extra space.
