@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int arr[10]={32,43,23,6,4,5,87,122,243,1423};//intilizing the array
+    
+    int l=10;
+    for(int i=0;i<l;i++)
+    {
+        for(int j=0;j<l-i-1;j++)
+        {
+            if(arr[j]>arr[j+1])
+            {
+                int temp;//taking an temp integer to store the value
+                temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+            }
+        }
+    }
+    for(auto it:arr)
+    {
+        cout<<it<<" ";
+    }
+    return 0;
+}
+output:
+4 5 6 23 32 43 87 122 243 1423 
+
+
+
+explanation:
