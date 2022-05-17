@@ -26,3 +26,73 @@ def divide(arr):
         
 arr=[9,8,7,6,5,4,3,2,1]
 print(divide(arr))
+
+
+
+c++ code:
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> concer(vector<int>&left,vector<int>&right)
+{
+    vector<int>res;
+    int i=0,j=0;
+    while(i<left.size() && j<right.size())
+    {
+        if(left[i]<right[j])
+        {
+            res.push_back(left[i]);
+            i=i+1;
+        }
+        else
+        {
+            res.push_back(right[j]);
+            j=j+1;
+        }
+    }
+    for(i;i<left.size();i++)
+    {
+        res.push_back(left[i]);
+    }
+    for(j;j<right.size();j++)
+    {
+        res.push_back(right[j]);
+    }
+    return res;
+}
+vector<int> divide(vector<int>&arr)
+{
+    if(arr.size()<=1)
+    {
+        return arr;
+    }
+    else
+    {
+        int mid=(arr.size())/2;
+        vector<int>left;
+        vector<int>right;
+        for(int i=0;i<mid;i++)
+        {
+            left.push_back(arr[i]);
+        }
+        for(int i=mid;i<arr.size();i++)
+        {
+            right.push_back(arr[i]);
+        }
+        vector<int>l=divide(left);
+        vector<int>r=divide(right);
+        return concer(l,r);
+    }   
+}
+int main()
+{
+    vector<int>arr={98,23,43,5,23,45,6,52,34,10,23};
+    vector<int>brr=divide(arr);
+    for(auto it:brr)
+    {
+        cout<<it<<" ";
+    }
+    return 0;
+}
+
+output:
+5 6 10 23 23 23 34 43 45 52 98 
