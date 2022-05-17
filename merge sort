@@ -1,0 +1,28 @@
+In python:
+def mix(left,right):
+    res=[]
+    i=0
+    j=0
+    while i<len(left) and j<len(right):
+        if(left[i]>right[j]):
+            res.append(right[j])
+            j=j+1
+        else:
+            res.append(left[i])
+            i=i+1
+    res+=left[i:]
+    res+=right[j:]
+    print(res)
+    return res
+def divide(arr):
+    l=len(arr)
+    mid=int(l/2)
+    if(l<=1):
+        return arr
+    else:
+        left=divide(arr[:mid])
+        right=divide(arr[mid:])
+        return mix(left,right)
+        
+arr=[9,8,7,6,5,4,3,2,1]
+print(divide(arr))
